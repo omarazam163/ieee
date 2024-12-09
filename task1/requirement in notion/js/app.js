@@ -78,8 +78,7 @@ function clear()
     phone.value = '';
     password.value = '';
     rePassword.value = '';
-    radio1.checked = false;
-    radio2.checked = false;
+    select.value = '0';
     checkbox.checked = false;
 }
 
@@ -102,16 +101,16 @@ submit.addEventListener('click',function(e){
             success.style.display = "none";
             success.style.animation = "none";
         }, 3000);
-       clear();
        let data = {
            fname:fName.value,
            lname:lName.value,
            phone:phone.value,
            password:password.value,
-           rePassword:rePassword.value,
-           select:select.value,
-           checkbox:checkbox.checked
+           gender:(select.value === '1')?'male':'female',
+           consent:checkbox.checked
        }
+       console.log(data);
+       clear();
     }
     else
     (
